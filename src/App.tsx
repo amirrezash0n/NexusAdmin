@@ -6,15 +6,15 @@ import Signup from "./pages/Signup";
 import Users from "./pages/Users";
 import Settings from "./pages/Settings";
 import Products from "./pages/Products";
-import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./components/layout/AppLayout";
-import Error from "./pages/Error";
+import NotFoundPage from "./pages/NotFoundPage";
+import ErrorPage from "./pages/ErrorPage";
 
 const router = createHashRouter([
   {
     path: "/",
     element: <AppLayout />,
-    errorElement: <Error />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -45,7 +45,7 @@ const router = createHashRouter([
   },
   {
     path: "*",
-    element: <PageNotFound />,
+    element: <NotFoundPage />,
   },
 ]);
 

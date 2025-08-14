@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { NavLink } from "react-router-dom";
 
 export default function SignupForm({
   className,
@@ -56,9 +57,9 @@ export default function SignupForm({
               </Button>
               <div className="text-center text-sm">
                 Already have an account?{" "}
-                <a href="#" className="underline underline-offset-4">
+                <NavLink className="underline underline-offset-4" to="/login">
                   Sign In
-                </a>
+                </NavLink>
               </div>
             </div>
           </form>
