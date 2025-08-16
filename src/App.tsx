@@ -1,6 +1,6 @@
 import { createHashRouter, Navigate, RouterProvider } from "react-router-dom";
 
-import Dashboard from "./pages/Dashboard-v1";
+import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Users from "./pages/Users";
@@ -9,6 +9,7 @@ import Products from "./pages/Products";
 import AppLayout from "./components/layout/AppLayout";
 import NotFoundPage from "./pages/NotFoundPage";
 import ErrorPage from "./pages/ErrorPage";
+import Help from "./pages/Help";
 
 const router = createHashRouter([
   {
@@ -35,7 +36,7 @@ const router = createHashRouter([
       },
       {
         path: "help",
-        // element: <Help />,
+        element: <Help />,
       },
     ],
   },
