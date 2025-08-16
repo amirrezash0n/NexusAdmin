@@ -1,6 +1,6 @@
 import { createHashRouter, Navigate, RouterProvider } from "react-router-dom";
 
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard-v1";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Users from "./pages/Users";
@@ -32,6 +32,10 @@ const router = createHashRouter([
       {
         path: "settings",
         element: <Settings />,
+      },
+      {
+        path: "help",
+        // element: <Help />,
       },
     ],
   },

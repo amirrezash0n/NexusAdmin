@@ -13,7 +13,7 @@ export function NavMain({
 }: {
   items: {
     title: string;
-    url: string;
+    to: string;
     icon?: Icon;
   }[];
 }) {
