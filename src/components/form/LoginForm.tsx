@@ -3,16 +3,38 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { NavLink } from "react-router-dom";
+import { useLogin } from "@/features/useLogin";
+import { useForm } from "react-hook-form";
+import Error from "../ui/Error";
+import Spinner from "../ui/Spinner";
+
+interface LoginFormData {
+  email: string;
+  password: string;
+}
 
 export default function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const { login, isPending } = useLogin();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<LoginFormData>();
+
+  function onSubmit(data: LoginFormData) {
+    login(data, { onSettled: () => reset() });
+  }
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2">
-          <form className="p-6 md:p-8">
+          <form onSubmit={handleSubmit(onSubmit)} className="p-6 md:p-8">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-bold">Welcome back</h1>
@@ -25,19 +47,33 @@ export default function LoginForm({
                   id="email"
                   type="email"
                   placeholder="Email Address"
-                  required
+                  {...register("email", {
+                    required: "This field is required",
+                    pattern: {
+                      value: /\S+@\S+\.\S+/,
+                      message: "Please provide a valid email address",
+                    },
+                  })}
+                  disabled={isPending}
                 />
               </div>
+              {errors?.email && <Error>{errors.email.message as string}</Error>}
               <div className="grid gap-3">
                 <Input
                   id="password"
                   type="password"
                   placeholder="Password"
-                  required
+                  {...register("password", {
+                    required: "This field is required",
+                  })}
+                  disabled={isPending}
                 />
+                {errors.password && (
+                  <Error>{errors?.password.message as string}</Error>
+                )}
               </div>
-              <Button type="submit" className="w-full">
-                Login
+              <Button disabled={isPending} type="submit" className="w-full">
+                {!isPending ? "Login" : <Spinner />}
               </Button>
               <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
                 <span className="bg-card text-muted-foreground relative z-10 px-2">

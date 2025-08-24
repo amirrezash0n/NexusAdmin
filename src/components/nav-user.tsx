@@ -13,6 +13,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { useLogout } from "@/features/useLogout";
 
 export function NavUser({
   user,
@@ -24,6 +25,7 @@ export function NavUser({
   };
 }) {
   const { isMobile } = useSidebar();
+  const { logout } = useLogout();
 
   return (
     <SidebarMenu>
@@ -52,6 +54,7 @@ export function NavUser({
             side={isMobile ? "bottom" : "right"}
             align="end"
             sideOffset={4}
+            onClick={() => logout()}
           >
             <DropdownMenuItem>
               <IconLogout />
