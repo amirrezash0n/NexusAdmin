@@ -1,5 +1,9 @@
 import { ClipLoader } from "react-spinners";
 
-export default function Spinner() {
-  return <ClipLoader />;
+interface SpinnerProp {
+  className: string;
+}
+
+export default function Spinner({ className }: SpinnerProp) {
+  return <ClipLoader className={className} />;
 }

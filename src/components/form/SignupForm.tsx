@@ -43,7 +43,7 @@ export default function SignupForm({
                   Sign up to your Nexus Panel
                 </p>
               </div>
-              <div className="grid gap-3">
+              <div className="relative grid gap-3">
                 <Input
                   id="name"
                   type="text"
@@ -55,7 +55,7 @@ export default function SignupForm({
                   <Error>{errors?.name?.message as string}</Error>
                 )}
               </div>
-              <div className="grid gap-3">
+              <div className="relative grid gap-3">
                 <Input
                   id="lastname"
                   type="text"
@@ -69,7 +69,7 @@ export default function SignupForm({
                   <Error>{errors?.lastname?.message as string}</Error>
                 )}
               </div>
-              <div className="grid gap-3">
+              <div className="relative grid gap-3">
                 <Input
                   id="email"
                   type="email"
@@ -87,7 +87,7 @@ export default function SignupForm({
                   <Error>{errors?.email?.message as string}</Error>
                 )}
               </div>
-              <div className="grid gap-3">
+              <div className="relative grid gap-3">
                 <Input
                   id="password"
                   type="password"
@@ -106,7 +106,7 @@ export default function SignupForm({
                 )}
               </div>
               <Button type="submit" className="w-full">
-                {!isPending ? "Signup" : <Spinner />}
+                {!isPending ? "Signup" : <Spinner className="text-white" />}
               </Button>
               <div className="text-center text-sm">
                 Already have an account?{" "}

@@ -42,7 +42,7 @@ export default function LoginForm({
                   Login to your Nexus Panel
                 </p>
               </div>
-              <div className="grid gap-3">
+              <div className="relative grid gap-3">
                 <Input
                   id="email"
                   type="email"
@@ -56,9 +56,11 @@ export default function LoginForm({
                   })}
                   disabled={isPending}
                 />
+                {errors?.email && (
+                  <Error>{errors.email.message as string}</Error>
+                )}
               </div>
-              {errors?.email && <Error>{errors.email.message as string}</Error>}
-              <div className="grid gap-3">
+              <div className="relative grid gap-3">
                 <Input
                   id="password"
                   type="password"
@@ -73,7 +75,7 @@ export default function LoginForm({
                 )}
               </div>
               <Button disabled={isPending} type="submit" className="w-full">
-                {!isPending ? "Login" : <Spinner />}
+                {!isPending ? "Login" : <Spinner className="text-white" />}
               </Button>
               <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
                 <span className="bg-card text-muted-foreground relative z-10 px-2">
