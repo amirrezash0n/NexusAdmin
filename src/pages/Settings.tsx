@@ -1,3 +1,5 @@
+import { SettingDataTable } from "@/components/panel/SettingDataTable";
+
 export default function Settings() {
-  return <div></div>;
+  return <SettingDataTable />;
 }
