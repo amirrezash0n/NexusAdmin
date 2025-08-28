@@ -1,5 +1,5 @@
-import { GetHelp } from "@/components/panel/GetHelp";
+import { GetHelpDataTable } from "@/components/panel/GetHelpDataTable";
 
 export default function Help() {
-  return <GetHelp />;
+  return <GetHelpDataTable />;
 }

@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 
-export function GetHelp() {
+export function GetHelpDataTable() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert("Your help request has been submitted. We'll get back to you soon!");
